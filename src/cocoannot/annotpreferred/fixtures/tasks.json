@@ -1,0 +1,142 @@
+[
+    {
+        "model":"annotpreferred.task",
+        "pk":1,
+        "fields":{
+            "number":6,
+            "name":"get lemon",
+            "desc":"Find an object to get the lemon out of the very hot tea.",
+            "desc_image":"task_images/lemon_slice.jpeg"
+        }
+    },
+    {
+        "model":"annotpreferred.task",
+        "pk":2,
+        "fields":{
+            "number":7,
+            "name":"dig hole",
+            "desc":"Find an object to dig a second hole like the one shown.",
+            "desc_image":"task_images/hole.jpeg"
+        }
+    },
+    {
+        "model":"annotpreferred.task",
+        "pk":3,
+        "fields":{
+            "number":12,
+            "name":"smear butter",
+            "desc":"Find an object to smear the butter on the bread as shown in the image.",
+            "desc_image":"task_images/butter.jpeg"
+        }
+    },
+    {
+        "model":"annotpreferred.task",
+        "pk":4,
+        "fields":{
+            "number":13,
+            "name":"extinguish fire",
+            "desc":"Find the best vessel to get water to extinguish the fire",
+            "desc_image":"task_images/fire.jpeg"
+        }
+    },
+    {
+        "model":"annotpreferred.task",
+        "pk":5,
+        "fields":{
+            "number":1,
+            "name":"step on something",
+            "desc":"You need to clean the top of the shelf, but you cannot reach it properly \r\nwith your hands. Now you have to drag something to the shelf and step on it to reach the top of the shelf.",
+            "desc_image":"task_images/shelf2.jpeg"
+        }
+    },
+    {
+        "model":"annotpreferred.task",
+        "pk":6,
+        "fields":{
+            "number":4,
+            "name":"get potatoes out of fire",
+            "desc":"Find an object to get the potatoes out of the fire without burning yourself or extinguishing the fire.",
+            "desc_image":"task_images/potatoes-burning-on-an-open-fire.JPG"
+        }
+    },
+    {
+        "model":"annotpreferred.task",
+        "pk":7,
+        "fields":{
+            "number":5,
+            "name":"water plant",
+            "desc":"Find the best vessel to get water from the tap to water the plant.",
+            "desc_image":"task_images/potted_plant2.jpg"
+        }
+    },
+    {
+        "model":"annotpreferred.task",
+        "pk":8,
+        "fields":{
+            "number":8,
+            "name":"open beer",
+            "desc":"Find an object to open the beer bottle with.",
+            "desc_image":"task_images/beer_bottle.jpeg"
+        }
+    },
+    {
+        "model":"annotpreferred.task",
+        "pk":9,
+        "fields":{
+            "number":10,
+            "name":"serve wine",
+            "desc":"Serve the remaining wine to one guest. Don't choose any vessel if you are better off taking the bottle itself.",
+            "desc_image":"task_images/wine.jpeg"
+        }
+    },
+    {
+        "model":"annotpreferred.task",
+        "pk":10,
+        "fields":{
+            "number":14,
+            "name":"pound carpet",
+            "desc":"Find an object which you can pound a hanging carpet with to get the dust out of it.",
+            "desc_image":"task_images/carpet.jpeg"
+        }
+    },
+    {
+        "model":"annotpreferred.task",
+        "pk":11,
+        "fields":{
+            "number":2,
+            "name":"sit comfortably",
+            "desc":"You have to find an object to sit on comfortably. Don't choose any if you are better of sitting on the ground.",
+            "desc_image":""
+        }
+    },
+    {
+        "model":"annotpreferred.task",
+        "pk":12,
+        "fields":{
+            "number":9,
+            "name":"open parcel",
+            "desc":"Find something to open the parcel.",
+            "desc_image":"task_images/parcel2.jpg"
+        }
+    },
+    {
+        "model":"annotpreferred.task",
+        "pk":13,
+        "fields":{
+            "number":11,
+            "name":"pour sugar",
+            "desc":"Find a tool to extract the shown amount of sugar from a pile and pour it into a tea cup with lowest possible number of tries.",
+            "desc_image":"task_images/sugar.jpeg"
+        }
+    },
+    {
+        "model":"annotpreferred.task",
+        "pk":14,
+        "fields":{
+            "number":3,
+            "name":"place flowers",
+            "desc":"Find a vessel to pour water into and place these flowers into to use them as decoration for as long as possible.",
+            "desc_image":"task_images/flowers.jpeg"
+        }
+    }
+]
