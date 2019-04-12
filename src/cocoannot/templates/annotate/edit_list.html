@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit List | {{ task_name }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Your Completed Jobs for "{{ task_name }}":</h2>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Job #</th>
+                        <th scope="col">Image</th>
+                        <th scope="col">Edit</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for job in job_list %}
+                        <tr>
+                            <th scope="row">{{ job.id }}</th>
+                            <td><img src="/{{ job.image.path }}" alt="" height="200"></td>
+                            <td><a href="{% url 'edit_job' job.id %}">edit</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                {% if is_paginated %}
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                            {% else %}
+                                <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                            {% endif %}
+                            {% for page in paginator.page_range %}
+                                <li class="page-item {% if page == page_obj.number  %}active{% endif %}"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+                            {% endfor %}
+                            {% if page_obj.has_next %}
+                                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+                            {% else %}
+                                <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Edit Job: {{ job.id }}{% endblock %}
+
+{% block content %}
+    <script type="application/javascript">
+        let preferred_objects = [];
+        if (!{{ preferred_objects|length }}) {
+            preferred_objects = new Set();
+        } else {
+            preferred_objects = new Set([{{ preferred_objects }}]);
+        }
+    </script>
+    <div class="alert alert-primary">
+        {% if job.task.desc_image %}
+            <img src="{{ job.task.desc_image.url }}" class="img-thumbnail float-right task-image"/>
+        {% endif %}
+        <p class="alert-heading">Task: {{ job.task.name }}</p>
+        <p>{{ job.task.desc }}</p>
+        <p><a href="{% url 'policy' %}">Annotation Policy</a></p>
+        <span class="clearfix"/>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-9">
+                <div id="image-canvas"
+                     style="height: {{ job.image.height }}px; width: {{ job.image.width }}px">
+                    <img id="image" class="position-absolute" src="/{{ job.image.path }}"
+                         height="{{ job.image.height }}" width="{{ job.image.width }}" alt="">
+                    <svg id="objects" class="position-absolute" height="{{ job.image.height }}"
+                         width="{{ job.image.width }}">
+                        {% for annot in annots %}
+                            {% for segment in annot.segmentation %}
+                                <polyline id="{{ annot.coco_id }}" class="object-segment" points="{{ segment }}"/>
+                            {% endfor %}
+                        {% endfor %}
+                    </svg>
+                </div>
+            </div>
+            <div class="col-3 card">
+                <div id="show-all" class="card-body">
+                    Hover to view all annotated objects.
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    <footer class="footer">
+        <div class="container">
+            <form class="form-inline" method="post" action="{% url 'edit_job' job.id %}">
+                <input name="preferred-object-input" id="preferred-objects-input" type="hidden" value="">
+                <div class="form-group spaced">
+                    <div class="form-check">
+                        <input name="is-empty" type="checkbox" class="form-check-input" id="is-empty">
+                        <label for="is-empty" class="form-check-label">No preferred objects</label>
+                    </div>
+                </div>
+                <div class="form-group spaced">
+                    <button name="save-and-continue" id="submit-button" type="submit" class="btn btn-secondary" disabled>Save and Continue</button>
+                </div>
+                <div class="form-group spaced">
+                    <button name="save" id="submit-button-save" type="submit" class="btn btn-outline-secondary" disabled>Save</button>
+                </div>
+
+                <div class="form-group double-spaced">
+                    {% if skip_job %}
+                        <a class="badge badge-dark" href="{% url 'edit_job' skip_job %}">Skip</a>
+                    {% endif %}
+                </div>
+
+                <div class="form-group spaced">
+                    <a class="badge badge-warning" href="{% url 'home' %}">Close</a>
+                </div>
+                {% if job.is_done %}
+                    <div class="form-group spaced">
+                        <a class="badge badge-info" href="{% url 'annotate_next' job.task.number %}">Continue</a>
+                    </div>
+                {% endif %}
+                {% csrf_token %}
+            </form>
+        </div>
+    </footer>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'annotpreferred/js/edit.js' %}"></script>
+{% endblock %}

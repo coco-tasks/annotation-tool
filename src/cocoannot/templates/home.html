@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1>To Annotate</h1>
+        <ul>
+            {% for task in to_annotate %}
+                {% if task.all_count %}
+                    {% if task.remaining_count %}
+                        <li><a href="{% url 'annotate_next' task.number %}">Task {{ task.number }}</a>
+                            (r: {{ task.remaining_count }} / <a href="{% url 'edit_list' task.number %}">d: {{ task.done_count }}</a> / t: {{ task.all_count }})
+                        </li>
+                    {% else %}
+                        <li><span class="text-success"
+                                  href="{% url 'annotate_next' task.number %}">Task {{ task.number }}</span>
+                            (r: {{ task.remaining_count }} / <a href="{% url 'edit_list' task.number %}">d: {{ task.done_count }}</a> / t: {{ task.all_count }})
+                        </li>
+                    {% endif %}
+
+                {% endif %}
+            {% endfor %}
+        </ul>
+        {% if is_superuser %}
+            <h1>Hiwi Performance</h1>
+            {% for hiwi in hiwis %}
+                <h3>{{ hiwi.username }}</h3>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Task #</th>
+                        <th scope="col">Done Jobs</th>
+                        <th scope="col">Remaining Jobs</th>
+                        <th scope="col">All Jobs</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for task in hiwi.tasks %}
+                        {% if task.all_count %}
+                            <tr>
+                                <th scope="row">{{ task.number }}</th>
+                                <td>{{ task.done_count }}</td>
+                                <td>{{ task.remaining_count }}</td>
+                                <td>{{ task.all_count }}</td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            {% endfor %}
+        {% endif %}
+    {% else %}
+        <p>You are not logged in.</p>
+        <a href="{% url 'login' %}">Login</a>
+    {% endif %}
+{% endblock %}

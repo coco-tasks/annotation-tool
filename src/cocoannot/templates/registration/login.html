@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    {% if form.errors %}
+        <p class="text-danger">Your user/pass didn't match.</p>
+    {% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+            <p>Your account doesn't have access to this page.</p>
+        {% else %}
+            <p>Please login first.</p>
+        {% endif %}
+    {% endif %}
+
+    <h2>Login</h2>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="hidden" name="next" value="{{ next }}">
+        <button type="submit">Login</button>
+
+    </form>
+{% endblock %}

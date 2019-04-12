@@ -1,0 +1,8 @@
+Django==2.2
+ipython==6.4.0
+matplotlib==2.2.2
+numpy==1.14.3
+Cython==0.28.3
+tqdm==4.23.4
+Pillow==5.1.0
+django-markdownx==2.0.23
