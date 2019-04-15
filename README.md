@@ -160,6 +160,45 @@ Now you tell `johann` to login to the go to <http://localhost:8000/> and login u
 
 
 
+## Dumping Annotation Results
+
+After annotation is done, you can use the following command to extract the annotation information into a raw JSON format.
+
+```bash
+./manage.py createrawfiles johann user2 user3
+```
+
+As you can see, you can pass a list of user names to this command to generate raw files for a bunch of users.
+
+This will create JSON files with the following format.
+
+```js
+{  
+    "1":{  //task number
+        "531568":{  //image number
+            "johann":{  //user name
+                "424155":0, //annotationid: 0 means this object in this image is not preferred for the task.
+                "1159538":0,
+                "1605215":1, // 1 means it is preferred.
+                "1967102":0,
+                "2122630":0
+            }
+        },
+        "283617":{  
+            "johann":{  
+                "47494":0,
+                "108100":1,
+                "1096425":0
+            }
+        }
+        // ...
+    }
+    // ...
+}
+```
+
+We used these JSON files and created the [COCO-Tasks dataset](https://github.com/coco-tasks/dataset).
+
 ## More Information
 
 If you want more information please refer to our [paper](https://arxiv.org/abs/1904.03000) and [supplementary material](https://yassersouri.github.io/papers/coco-tasks-cvpr2019-supmat.pdf).
