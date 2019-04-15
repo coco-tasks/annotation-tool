@@ -175,9 +175,9 @@ This will create JSON files with the following format.
 ```js
 {  
     "1":{  //task number
-        "531568":{  //image number
-            "johann":{  //user name
-                "424155":0, //annotationid: 0 means this object in this image is not preferred for the task.
+        "531568":{  //COCO image id
+            "johann":{  //username
+                "424155":0, //COCO annotation id: 0 means this object in this image is not preferred for the task.
                 "1159538":0,
                 "1605215":1, // 1 means it is preferred.
                 "1967102":0,
