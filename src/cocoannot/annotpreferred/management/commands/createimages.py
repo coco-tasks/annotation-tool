@@ -37,7 +37,7 @@ class Command(BaseCommand):
             with redirect_stdout(open(os.devnull, 'w')):
                 coco = COCO(str(coco_annot_directory / 'instances_{}2014.json'.format(coco_dir_name)))
             for task in Task.objects.all():
-                file_name = image_list_directory / "{}_task_nr_{}_ImgIds.txt".format(set_name, task.number)
+                file_name = image_list_directory / "imgIds_task_{}_{}.txt".format(task.number, set_name)
                 assert file_name.exists()
                 with open(str(file_name)) as f:  # Because of python 3.5
                     image_ids = [int(x[:-1]) for x in f.readlines()]
