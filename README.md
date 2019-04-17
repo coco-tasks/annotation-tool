@@ -6,6 +6,25 @@ This is a Django web application that we used to run on a server. The interface 
 
 ![Screenshot](/screenshot.png)
 
+Table of Contents
+=================
+  * [What Is This?](#what-is-this)
+  * [Running The Server](#running-the-server)
+  * [Requirements](#requirements)
+  * [Preparing The Database](#preparing-the-database)
+     * [Downloading COCO](#downloading-coco)
+  * [Populating the Database](#populating-the-database)
+     * [Annotation Policy](#annotation-policy)
+     * [Tasks](#tasks)
+     * [Categories](#categories)
+     * [Images](#images)
+     * [Annotations](#annotations)
+  * [Running the Server and Annotating](#running-the-server-and-annotating)
+     * [Adding Users](#adding-users)
+     * [Adding Jobs for Users](#adding-jobs-for-users)
+  * [Dumping Annotation Results](#dumping-annotation-results)
+  * [More Information](#more-information)
+
 ## What Is This?
 
 * This is a Django web application
