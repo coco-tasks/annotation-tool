@@ -75,6 +75,7 @@ To setup the database (we use SQLite) just run the following.
 ```bash
 ./manage.py migrate
 ./manage.py createsuperuser
+./manage.py collectstatic
 ```
 
 ### Downloading COCO
@@ -192,7 +193,7 @@ As you can see, you can pass a list of user names to this command to generate ra
 This will create JSON files with the following format.
 
 ```js
-{  
+{
     "1":{  //task number
         "531568":{  //COCO image id
             "johann":{  //username
@@ -203,8 +204,8 @@ This will create JSON files with the following format.
                 "2122630":0
             }
         },
-        "283617":{  
-            "johann":{  
+        "283617":{
+            "johann":{
                 "47494":0,
                 "108100":1,
                 "1096425":0
