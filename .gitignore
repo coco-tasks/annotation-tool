@@ -109,4 +109,4 @@ venv.bak/
 # This project
 COCO_*.jpg
 #media  I commented this out because I wanted to provide the task images
-static
+src/cocoannot/static
