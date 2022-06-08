@@ -1,8 +1,8 @@
-Django>=2.2.3
-ipython==7.16.3
-matplotlib==2.2.2
-numpy==1.14.3
-Cython==0.28.3
-tqdm==4.23.4
+Django~=2.2.3
+ipython~=7.16.3
+matplotlib~=2.2.2
+numpy~=1.14.3
+Cython~=0.28.3
+tqdm~=4.23.4
 Pillow
-django-markdownx==2.0.23
+django-markdownx~=2.0.23
